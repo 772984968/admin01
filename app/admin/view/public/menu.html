@@ -1,0 +1,17 @@
+<aside class="Hui-aside">
+<div class="menu_dropdown bk_2">
+{volist name="menu" id="vo"}
+		<dl id="{$vo['title']}">
+			<dt><i class="Hui-iconfont">{$vo['img']}</i> {$vo['title']}<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+		<dd>
+		<ul>
+			{volist name="$vo['son']" id="voo"}
+
+					<li><a data-href="{:url($voo['url'])}" data-title="{$voo['title']}" href="javascript:void(0)">{$voo['title']}</a></li>
+			{/volist}
+				</ul>
+		</dd>
+	</dl>
+	{/volist}
+</div>
+</aside>

@@ -1,0 +1,161 @@
+﻿{include file="public/head" title="文件上传"/ }
+<!-- 百度上传插件 -->
+<link href="__static__/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="__static__/lib/webuploader/0.1.5/webuploader.min.js"></script>
+<body>
+<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
+	<span class="c-gray en">&gt;</span>
+文件上传
+	<span class="c-gray en">&gt;</span>
+上传操作
+	<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+</nav>
+<div class="page-container">
+
+		<div id="tab-system" class="HuiTab">
+			<div class="tabBar cl">
+				<span>文件上传</span>
+				<span>ThinkPHP文件上传</span>
+	      		<span>其他设置</span>
+			</div>
+			<div class="tabCon">
+			<form class="form form-horizontal" id="form-article-add" action="{:url('upload/uploadimage')}" method="post" enctype="multipart/form-data">
+
+				<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">单图片上传：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="btn-upload form-group">
+				<input class="input-text upload-url" name="text1" id="uploadfile" readonly="" nullmsg="请添加文件！" style="width:200px" type="text">
+				<a href="javascript:void();" class="btn btn-primary radius upload-btn"><i class="Hui-iconfont"></i> 浏览文件</a>
+				<input multiple="" name="file1" class="input-file" type="file">
+				</span> </div>
+		</div>
+<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+			</div>
+		</div>
+			</form>
+<form class="form form-horizontal" id="form-article-add" action="{:url('upload/uploadfile')}" method="post" enctype="multipart/form-data">
+
+				<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">文件上传：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="btn-upload form-group">
+				<input class="input-text upload-url" name="text1" id="uploadfile" readonly="" nullmsg="请添加文件！" style="width:200px" type="text">
+				<a href="javascript:void();" class="btn btn-primary radius upload-btn"><i class="Hui-iconfont"></i> 浏览文件</a>
+				<input multiple="" name="file2" class="input-file" type="file">
+				</span> </div>
+		</div>
+<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+			</div>
+		</div>
+			</form>
+			<form class="form form-horizontal" id="form-article-add" action="{:url('upload/uploadimages')}" method="post" enctype="multipart/form-data">
+
+				<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">多图片上传：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="btn-upload form-group">
+				<input class="input-text upload-url" name="text1" id="uploadfile" readonly="" nullmsg="请添加文件！" style="width:200px" type="text">
+				<a href="javascript:void();" class="btn btn-primary radius upload-btn"><i class="Hui-iconfont"></i> 浏览文件</a>
+				<input multiple="" name="images[]" class="input-file" type="file">
+				</span> </div>
+		</div>
+			<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">多图片上传：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="btn-upload form-group">
+				<input class="input-text upload-url" name="text1" id="uploadfile" readonly="" nullmsg="请添加文件！" style="width:200px" type="text">
+				<a href="javascript:void();" class="btn btn-primary radius upload-btn"><i class="Hui-iconfont"></i> 浏览文件</a>
+				<input multiple="" name="images[]" class="input-file" type="file">
+				</span> </div>
+		</div>
+			<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">多图片上传：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="btn-upload form-group">
+				<input class="input-text upload-url" name="text1" id="uploadfile" readonly="" nullmsg="请添加文件！" style="width:200px" type="text">
+				<a href="javascript:void();" class="btn btn-primary radius upload-btn"><i class="Hui-iconfont"></i> 浏览文件</a>
+				<input multiple="" name="images[]" class="input-file" type="file">
+				</span> </div>
+		</div>
+<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+			</div>
+		</div>
+			</form>
+			</div>
+
+
+			<div class="tabCon">
+				<form class="form form-horizontal" id="form-article-add" action="{:url('upload/tpupload')}" method="post" enctype="multipart/form-data">
+
+				<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">Tp单图片上传：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="btn-upload form-group">
+				<input class="input-text upload-url" name="text" id="uploadfile" readonly="" nullmsg="请添加文件！" style="width:200px" type="text">
+				<a href="javascript:void();" class="btn btn-primary radius upload-btn"><i class="Hui-iconfont"></i> 浏览文件</a>
+				<input multiple="" name="image" class="input-file" type="file">
+				</span> </div>
+		</div>
+<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+			</div>
+		</div>
+			</form>
+				<form class="form form-horizontal" id="form-article-add" action="{:url('upload/tpuploads')}" method="post" enctype="multipart/form-data">
+
+				<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">多图片上传：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="btn-upload form-group">
+				<input class="input-text upload-url" name="text1" id="uploadfile" readonly="" nullmsg="请添加文件！" style="width:200px" type="text">
+				<a href="javascript:void();" class="btn btn-primary radius upload-btn"><i class="Hui-iconfont"></i> 浏览文件</a>
+				<input multiple="" name="images[]" class="input-file" type="file">
+				</span> </div>
+		</div>
+			<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">多图片上传：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="btn-upload form-group">
+				<input class="input-text upload-url" name="text1" id="uploadfile" readonly="" nullmsg="请添加文件！" style="width:200px" type="text">
+				<a href="javascript:void();" class="btn btn-primary radius upload-btn"><i class="Hui-iconfont"></i> 浏览文件</a>
+				<input multiple="" name="images[]" class="input-file" type="file">
+				</span> </div>
+		</div>
+			<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">多图片上传：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="btn-upload form-group">
+				<input class="input-text upload-url" name="text1" id="uploadfile" readonly="" nullmsg="请添加文件！" style="width:200px" type="text">
+				<a href="javascript:void();" class="btn btn-primary radius upload-btn"><i class="Hui-iconfont"></i> 浏览文件</a>
+				<input multiple="" name="images[]" class="input-file" type="file">
+				</span> </div>
+		</div>
+<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+			</div>
+		</div>
+			</form>
+			</div>
+			<div class="tabCon">
+			</div>
+			<div class="tabCon">
+			</div>
+		</div>
+
+</div>
+
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript">
+$(function(){
+	$("#tab-system").Huitab({
+		index:0
+	});
+});
+</script>
+</body>
+</html>
