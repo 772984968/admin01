@@ -16,7 +16,7 @@
 			<div class="tabBar cl">
 				<span>文件上传</span>
 				<span>ThinkPHP文件上传</span>
-	      		<span>其他设置</span>
+	      		<span>文件下载</span>
 			</div>
 			<div class="tabCon">
 			<form class="form form-horizontal" id="form-article-add" action="{:url('upload/uploadimage')}" method="post" enctype="multipart/form-data">
@@ -142,9 +142,23 @@
 			</form>
 			</div>
 			<div class="tabCon">
+<form class="form form-horizontal" id="form-article-add" action="{:url('upload/tpupload')}" method="post" enctype="multipart/form-data">
+
+				<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">文件下载：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="btn-upload form-group">
+			<a href="{:url('upload/download')}" >文件下载</a>
+				</span> </div>
+		</div>
+<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
 			</div>
-			<div class="tabCon">
+		</div>
+			</form>
 			</div>
+
 		</div>
 
 </div>

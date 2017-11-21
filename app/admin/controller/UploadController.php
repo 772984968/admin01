@@ -149,4 +149,13 @@ class uploadcontroller extends Controller
        }
       return $this->fetch();
    }
+
+    //文件下载
+   public function downLoad(){
+       $filename='./abc.png';
+       header('content-disposition:attachment;filename='.basename($filename));
+       header('content-length:'.filesize($filename));
+       readfile($filename);
+
+   }
 }

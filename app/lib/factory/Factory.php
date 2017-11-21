@@ -4,6 +4,18 @@ namespace app\lib\factory;
  *工厂类
  */
 class  Factory{
+    private  $UserModel;
+    //用户类
+    public function getUser($userId=''){
+        if (!$this->UserModel){
+            $this->UserModel= \app\common\model\User::get(['id'=>$userId]);
+            if (!$this->UserModel){
+                return false;
+            }
+            return $this->UserModel;
+        }
+        return $this->UserModel;
+    }
     //权限认证类
     public static function getRbac(){
         if (isset($rbac)){
