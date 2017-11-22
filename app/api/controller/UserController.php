@@ -3,9 +3,8 @@
 namespace app\api\controller;
 
 use think\Controller;
-use think\Request;
-use app\lib\factory\Factory;
 use app\common\model\User;
+use app\lib\factory\Factory;
 
 class UserController extends BaseController
 {
@@ -21,9 +20,11 @@ class UserController extends BaseController
         if (!$userModel){
             $this->jsonError('用户不存在或密码错误');
         }
-        $factorty=new Factory();
-        $factorty->getUser($userModel->id);
-        session('userId',$userModel->id);
-        $this->jsonSuccess('用户登录成功');
+        $data=Factory::getInstance()->getUser($userModel->id)->login();
+        if ($data){
+            $this->jsonSuccess('用户登录成功','200',$data);
+        }else{
+            $this->jsonSuccess('用户登录成功','200',$data);
         }
+ }
 }

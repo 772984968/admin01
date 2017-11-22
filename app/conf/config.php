@@ -19,7 +19,7 @@ return [
     // 应用调试模式
     'app_debug'              => true,
     // 应用Trace
-    'app_trace'              => true,
+    'app_trace'              => false,
     // 应用模式状态
     'app_status'             => '',
     // 是否支持多模块
@@ -159,7 +159,7 @@ return [
     // 显示错误信息
     'show_error_msg'         => false,
     // 异常处理handle类 留空使用 \think\exception\Handle
-    'exception_handle'       => '',
+    'exception_handle'       => '\app\api\exception\Http',
 
     // +----------------------------------------------------------------------
     // | 日志设置
@@ -207,12 +207,24 @@ return [
             // 缓存保存目录
             'path'   => CACHE_PATH,
         ],
+        // 文件缓存
+        'file'   =>  [
+            // 驱动方式
+            'type'   => 'file',
+            // 设置不同的缓存保存目录
+            'path'   => RUNTIME_PATH . 'file/',
+        ],
         // redis缓存
         'redis'   =>  [
             // 驱动方式
             'type'   => 'redis',
             // 服务器地址
             'host'       => '127.0.0.1',
+            //端口号
+            'port'       => 6379,
+            // 密码
+            'password'   => '123456',
+            'timeout'=> 0,
         ],
     ],
     // +----------------------------------------------------------------------

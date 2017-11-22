@@ -3,6 +3,7 @@
 namespace app\api\controller;
 
 use think\Controller;
+use app\lib\factory\Factory;
 
 
 /**

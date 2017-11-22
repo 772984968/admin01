@@ -4,6 +4,7 @@ namespace app\api\controller;
 
 use think\Controller;
 use app\lib\factory\Factory;
+use think\Cache;
 
 
 /**
@@ -27,15 +28,28 @@ class BaseController extends Controller
         }
         //线上环境或测试环境
         if (HUANG_JING>1){
-        }
+            $userId = $this->request->get('userId');
+            $token = $this->request->get('token');
+            if (empty($userId)||empty($token)){
+                $this->jsonError('缺少用户信息或token信息');
+           }
+           $userModel=Factory::getInstance()->getUser($userId);
+           if (!$userModel){
+               $this->jsonError('不存在该用户！');
+           }
+           if (!$userModel->loginByToken($token)){
+               $this->jsonError('登录过期或用户未登录');
+           }
+           return true;
+       }
+
         //本地环境
         if(HUANG_JING === 1) {
-         $userId=session('userId');
-            if( $userId ) {
-                $factory=new Factory();
-                $user=$factory->getUser($userId);
+            $userKey=session('userKey');
+            if( $userKey ) {
+                $factory=Factory::getInstance();
+                $user=$factory->getUser($userKey);
                 if (!$user){
-
                 $this->jsonError('用户不存在','404');
                 }
             } else {
