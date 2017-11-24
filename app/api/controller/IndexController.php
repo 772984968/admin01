@@ -15,6 +15,7 @@ use app\lib\factory\Factory;
 class IndexController extends BaseController
 {
     public function  index(){
+        return 'c';
     }
 
 }

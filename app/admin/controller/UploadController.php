@@ -20,7 +20,7 @@ class uploadcontroller extends Controller
 
     // 图片上传
     public function uploadImage(){
-         $upload=(new Factory)->getUpload($_FILES['file1']);
+         $upload=Factory::getInstance()->getUpload($_FILES['file1']);
          $upload->allowImageExt=config('system')['upload']['allowImageExt'];
          $upload->maxImageSize=config('system')['upload']['maxImageSize'];
          $upload->uploadPath=config('system')['upload']['uploadImagePath'];
@@ -32,7 +32,7 @@ class uploadcontroller extends Controller
     }
     //文件上传
     public function uploadFile(){
-        $upload=(new Factory)->getUpload($_FILES['file2']);
+        $upload=Factory::getInstance()->getUpload($_FILES['file2']);
         $rs=$upload->uploadFile();
         if ($rs===true){
             return $upload->getUrl();
@@ -52,7 +52,7 @@ class uploadcontroller extends Controller
             }
         }
         foreach ($files as $val){
-            $upload=(new Factory)->getUpload($val);
+            $upload=Factory::getInstance()->getUpload($val);
             $upload->allowImageExt=config('system')['upload']['allowImageExt'];
             $upload->maxImageSize=config('system')['upload']['maxImageSize'];
             $upload->uploadPath=config('system')['upload']['uploadImagePath'];
@@ -152,10 +152,18 @@ class uploadcontroller extends Controller
 
     //文件下载
    public function downLoad(){
-       $filename='./abc.png';
+       $filename='./abc.png';//文件路径
        header('content-disposition:attachment;filename='.basename($filename));
        header('content-length:'.filesize($filename));
        readfile($filename);
 
    }
+   //文件删除
+   public function fileDel(){
+       $filename='www.tp5.h-ui.com/uploads/images/20171123/87526ad56ede64853661bf45171e8ca3.png';//文件路径
+      $filename=trim(stristr($filename,'/'),'/');
+       if (file_exists($filename)){
+            return @unlink($filename);
+       }
+  }
 }

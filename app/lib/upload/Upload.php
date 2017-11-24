@@ -44,7 +44,7 @@ class  Upload{
     //单图片上传
     public  function uploadImage(){
         if ($this->cheackError()&&$this->checkSize()&&$this->checkExt()&&$this->checkHTTPPost()&&$this->checkTrueImg()){
-            $this->uploadPath='uplaods/images/'.date('Ymd');
+            $this->uploadPath='uploads/images/'.date('Ymd');
             $this->fileName=$this->getUniName();
             $this->destination=$this->uploadPath.'/'.$this->fileName.'.'.$this->ext;
             if (!$this->checkUploadPath()){

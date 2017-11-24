@@ -17,6 +17,7 @@
 				<span>文件上传</span>
 				<span>ThinkPHP文件上传</span>
 	      		<span>文件下载</span>
+	      		<span>文件删除</span>
 			</div>
 			<div class="tabCon">
 			<form class="form form-horizontal" id="form-article-add" action="{:url('upload/uploadimage')}" method="post" enctype="multipart/form-data">
@@ -159,6 +160,25 @@
 			</form>
 			</div>
 
+<!-- 文件删除 -->
+	<div class="tabCon">
+<form class="form form-horizontal" id="form-article-add" action="{:url('upload/filedel')}" method="post" enctype="multipart/form-data">
+
+				<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">文件删除：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="btn-upload form-group">
+			<a href="{:url('upload/filedel')}" >删除文件</a>
+				</span> </div>
+		</div>
+<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
+				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+			</div>
+		</div>
+			</form>
+			</div>
+<!-- 文件删除结束 -->
 		</div>
 
 </div>
