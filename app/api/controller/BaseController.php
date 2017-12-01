@@ -18,6 +18,7 @@ class BaseController extends Controller
 
         $route=$this->request->controller().'/'.$this->request->action();
         $route = $route ? $route : 'Index/index';
+        //不需要登录的方法
         $noLoginMethods=config('api')['noLogin'];
         $checkMethods=config('api')['check'];
         if( in_array($route,$noLoginMethods) ) {
@@ -46,7 +47,8 @@ class BaseController extends Controller
         //本地环境
         if(HUANG_JING === 1) {
             $userKey=session('userKey');
-            if( $userKey ) {
+              if( $userKey ) {
+
                 $factory=Factory::getInstance();
                 $user=$factory->getUser($userKey);
                 if (!$user){

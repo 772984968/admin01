@@ -4,12 +4,11 @@ return [
     'noLogin'=>[
       'User/login',
       'Msg/sendregister',
+      'Msg/sendfindpassoword',
 
     ],
     //需要验证权限的方法
    'check'=>[
     'Index/index',
-
    ],
-
 ];

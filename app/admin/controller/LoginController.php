@@ -12,7 +12,6 @@ class LoginController extends Controller
 
     //登录控制器首页
     public function index(){
-
             return $this->fetch();
     }
         // 用户登录

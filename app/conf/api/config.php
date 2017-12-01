@@ -31,7 +31,10 @@ return
             'port'       => 6379,
             // 密码
             'password'   => '123456',
+
             'timeout'=> 0,
+            //选择数据库
+            'select'=>1,
         ],
     ],
 
