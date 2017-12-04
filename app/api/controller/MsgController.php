@@ -35,10 +35,6 @@ class MsgController extends BaseController
             $this->jsonError($msg->error);
         }
         $this->jsonSuccess('验证码发送成功,有效时间'.$msg->validMinute.'秒');
-
-
-
-
     }
 
 }
